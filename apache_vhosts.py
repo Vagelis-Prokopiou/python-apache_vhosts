@@ -2,7 +2,18 @@ import os
 import subprocess
 import socket
 
-domains = ['site1', 'site2', 'site3', 'site4']
+domain = raw_input('Please enter the domain name to create: ')
+domains = []
+domains.append(domain)
+
+# If you want to create multiple vhosts at once, uncomment and use the following code.
+# domains = [
+# 	'vhost_1',
+# 	'vhost_2',
+# 	'vhost_3',
+# 	'vhost_4',
+# 	'vhost_5'
+# 	]
 
 def create_dirs():
     ''' Create the directory structure. '''
@@ -35,7 +46,7 @@ def create_dirs():
 
 
 def write_hosts(name):
-    ''' Write the Windows hosts file. '''
+    ''' Write the hosts file. '''
     ip = [(s.connect(('8.8.8.8', 53)), s.getsockname()[0], s.close()) for s in
           [socket.socket(socket.AF_INET, socket.SOCK_DGRAM)]][0][1]
     # with open('/media/sf_C_DRIVE/Windows/System32/drivers/etc/hosts', 'a') as file:
@@ -46,7 +57,7 @@ def write_hosts(name):
 def create_index_files(name):
     ''' Create the index files. '''
     with open('/var/www/html/vhosts/' + name + '/public_html/index.html', 'w') as file:
-        text = "<h1>{0}.local has been created successfully.</h1>".format(name)
+        text = '{0}.local has been created successfully.'.format(name)
         file.write(text)
 
 
