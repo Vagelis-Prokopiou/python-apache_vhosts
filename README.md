@@ -4,8 +4,7 @@ A Python script, that automates the Apache Vhosts setup, for development purpose
 
 ## Apache-Vhosts Quickstart
 
-- Edit the script and add all the domains (names) that you wish to create on your local dev server.
-- Run the script from your teminal with `sudo python apache_vhosts.py`.
+- Run the script from your teminal with `sudo python apache_vhosts.py`. Alternativelly, if you wish to create multiple vhosts at once, uncomment and use the `domains` list provided.
 - You can access each domain you provided at `http://eachDomainName.local/`. 
 
 The scipt creates a `vhosts` directory under `/var/www/html/`.
